@@ -1,5 +1,6 @@
-// Fetch repo data from the given URL
-fetch('https://apps.nabzclan.vip/repos/esign.php')
+const proxyUrl = 'https://cors-anywhere.herokuapp.com/';
+const targetUrl = 'https://apps.nabzclan.vip/repos/esign.php';
+fetch(proxyUrl + targetUrl)
   .then(response => response.json())
   .then(data => {
     const repoList = document.querySelector('.repo-list');
@@ -24,6 +25,14 @@ fetch('https://apps.nabzclan.vip/repos/esign.php')
       });
 
       repoItem.appendChild(repoTitle);
+      repoItem.appendChild(appList);
+      repoList.appendChild(repoItem);
+    }
+  })
+  .catch(error => {
+    console.error('Error loading apps:', error);
+  });
+
       repoItem.appendChild(appList);
       repoList.appendChild(repoItem);
     }
