@@ -1,8 +1,9 @@
-fetch('https://corsproxy.io/?https://apps.nabzclan.vip/repos/esign.php')
+fetch('https://thingproxy.freeboard.io/fetch/https://apps.nabzclan.vip/repos/esign.php')
   .then(response => response.json())
   .then(apps => {
+    console.log(apps); // Log the data to check if it's fetched
     const container = document.getElementById('app-container');
-    if (!Array.isArray(apps) || apps.length === 0) {
+    if (apps.length === 0) {
       container.innerHTML = "<p>No apps found.</p>";
       return;
     }
@@ -24,3 +25,4 @@ fetch('https://corsproxy.io/?https://apps.nabzclan.vip/repos/esign.php')
       "<p>Failed to load apps. Please try again later.</p>";
     console.error('Error loading apps:', error);
   });
+
